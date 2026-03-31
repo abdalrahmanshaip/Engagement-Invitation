@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="You're invited to celebrate the engagement of Ahmed & Mai — October 24, 2024 at The Rose Pavilion, Heritage Gardens. RSVP now."
+    />
+    <meta name="theme-color" content="#C0887A" />
+    <title>Ahmed & Mai — Engagement Invitation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Josefin+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- GSAP for premium animations -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Floating Petals Canvas -->
+    <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+    <!-- Invitation Envelope Opening -->
+    <div id="envelope-overlay" class="envelope-overlay">
+      <!-- Background sparkle particles -->
+      <div class="envelope-sparkles" id="envelope-sparkles"></div>
+
+      <!-- Decorative ornaments -->
+      <div class="envelope-ornament envelope-ornament-tl">
+        <img src="assets/floral-corner.png" alt="" loading="eager" />
+      </div>
+      <div class="envelope-ornament envelope-ornament-br">
+        <img src="assets/floral-corner.png" alt="" loading="eager" />
+      </div>
+
+      <!-- Title above envelope -->
+      <p class="envelope-pretitle" id="envelope-pretitle">
+        S A V E &nbsp; T H E &nbsp; D A T E
+      </p>
+
+      <!-- 3D Envelope -->
+      <div class="envelope-scene" id="envelope-scene">
+        <div class="envelope-3d">
+          <!-- Envelope back -->
+          <div class="envelope-back"></div>
+          <!-- Inner card / letter -->
+          <div class="envelope-letter" id="envelope-letter">
+            <div class="letter-content">
+              <div class="letter-ornament">✦</div>
+              <p class="letter-title">You're Invited</p>
+              <p class="letter-names">Ahmed <em>&</em> Mai</p>
+              <p class="letter-date">May 7, 2026</p>
+              <div class="letter-ornament">✦</div>
+            </div>
+          </div>
+          <!-- Envelope front -->
+          <div class="envelope-front"></div>
+          <!-- Envelope flap (top triangle) -->
+          <div class="envelope-flap-3d" id="envelope-flap"></div>
+          <!-- Wax seal -->
+          <div class="wax-seal" id="wax-seal">
+            <div class="wax-seal-inner">
+              <span class="wax-seal-initials">A & M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="envelope-subtitle" id="envelope-subtitle">
+        "A love story in every heartbeat."
+      </p>
+
+      <!-- Open button -->
+      <button
+        id="open-invite-btn"
+        class="open-invite-btn"
+        aria-label="Open invitation"
+      >
+        <span class="btn-text">Open Invitation</span>
+        <span class="btn-shimmer"></span>
+      </button>
+    </div>
+
+    <!-- Main Invitation -->
+    <div id="invitation" class="invitation hidden">
+      <!-- Header -->
+      <header class="header" id="header">
+        <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <h1 class="header-title">Ahmed <em>&</em> Mai</h1>
+        <button
+          class="music-toggle"
+          id="music-toggle"
+          aria-label="Toggle music"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="hero-bg-florals">
+          <img
+            src="assets/floral-corner.png"
+            alt=""
+            class="hero-floral hero-floral-tl"
+            loading="lazy"
+          />
+          <img
+            src="assets/floral-corner.png"
+            alt=""
+            class="hero-floral hero-floral-br"
+            loading="lazy"
+          />
+        </div>
+        <div class="hero-content reveal">
+          <p class="save-the-date">S A V E &nbsp; T H E &nbsp; D A T E</p>
+          <div class="couple-names-wrapper">
+            <img
+              src="assets/floral-wreath.png"
+              alt=""
+              class="wreath-bg"
+              loading="lazy"
+            />
+            <h2 class="couple-names">
+              Ahmed <span class="ampersand">&</span> Mai
+            </h2>
+          </div>
+          <p class="love-quote">"A love story in every heartbeat."</p>
+          <p class="wedding-date">MAY 7, 2026</p>
+          <button class="play-song-btn" id="play-song-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            PLAY OUR SONG
+          </button>
+        </div>
+        <img
+          src="assets/floral-divider.png"
+          alt=""
+          class="section-divider"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- Event Details -->
+      <section class="event-details" id="event-details">
+        <div class="details-card reveal">
+          <div class="detail-item">
+            <div class="detail-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <h3 class="detail-label">WHEN</h3>
+            <p class="detail-value">May 7, 2026 at 5:00 PM</p>
+          </div>
+          <div class="detail-divider"></div>
+          <div class="detail-item">
+            <div class="detail-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <h3 class="detail-label">WHERE</h3>
+            <p class="detail-value">The Rose Pavilion, Heritage Gardens</p>
+            <a
+              href="https://maps.app.goo.gl/PhraEmKXB33hymDSA"
+              target="_blank"
+              class="view-map-link"
+              id="view-map-link"
+              >VIEW MAP</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Countdown -->
+      <section class="countdown-section" id="countdown">
+        <div class="reveal">
+          <img
+            src="assets/floral-divider.png"
+            alt=""
+            class="section-divider flip"
+            loading="lazy"
+          />
+          <p class="countdown-label">C O U N T I N G &nbsp; D O W N</p>
+          <div class="countdown-timer" id="countdown-timer">
+            <div class="countdown-unit">
+              <span class="countdown-number" id="countdown-days">00</span>
+              <span class="countdown-text">DAYS</span>
+            </div>
+            <div class="countdown-separator"></div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="countdown-hours">00</span>
+              <span class="countdown-text">HOURS</span>
+            </div>
+            <div class="countdown-separator"></div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="countdown-mins">00</span>
+              <span class="countdown-text">MINS</span>
+            </div>
+            <div class="countdown-separator"></div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="countdown-secs">00</span>
+              <span class="countdown-text">SECS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="footer" id="footer">
+        <div class="footer-content reveal">
+          <img
+            src="assets/floral-divider.png"
+            alt=""
+            class="section-divider"
+            loading="lazy"
+          />
+          <p class="footer-names">Ahmed <em>&</em> Mai</p>
+          <p class="footer-date">May 7, 2026</p>
+          <div class="footer-hearts">
+            <span>♥</span><span>♥</span><span>♥</span>
+          </div>
+        </div>
+        <img
+          src="assets/floral-corner.png"
+          alt=""
+          class="footer-floral"
+          loading="lazy"
+        />
+      </footer>
+    </div>
+
+    <!-- Audio element (hidden) -->
+    <audio id="bg-music" loop preload="none">
+      <source src="assets/Say_You_Wont_Let_Go.com_.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
