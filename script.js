@@ -7,7 +7,7 @@
   'use strict'
 
   // ---------- Configuration ----------
-  const EVENT_DATE = new Date('2026-05-07T17:00:00')
+  const EVENT_DATE = new Date('2026-05-07')
   const PETAL_COUNT = 18
   const CONFETTI_COUNT = 40
   const SPARKLE_COUNT = 30
